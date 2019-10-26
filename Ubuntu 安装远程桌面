@@ -1,0 +1,62 @@
+版权声明：本文为博主原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接和本声明。
+本文链接：https://blog.csdn.net/heyangyi_19940703/article/details/77994416
+1.安装xrdp软件:
+
+运行Terminal,执行以下命令：
+
+sudo apt-get -y install xfce4 xrdp vnc4server
+
+
+2.安装完成，查看下相关软件包
+
+执行命令：
+
+dpkg -L xrdp
+
+
+执行命令：
+
+dpkg -L vnc4server
+
+
+3.配置xfce4桌面会话文件
+
+执行命令：
+
+echo xfce4-session>.xsession
+cat .xsession
+ls -all
+
+
+
+4.在windows进行远程桌面连接：
+
+运行：mstsc,输入ubuntu ip地址，确定
+
+
+
+5.输入用户名密码，进入远程桌面：
+
+
+
+问题：
+
+如果输入正确的用户名和密码链接出错：
+
+
+
+解决方案：
+
+执行命令：
+
+apt-get purge tightvnc xrdp
+apt-get install tightvncserver xrdp
+启动xrdp服务，执行命令：
+sudo /etc/init.d/xrdp restart
+此时会启用相应端口，查看端口情况：
+netstat  -tnl
+
+
+————————————————
+版权声明：本文为CSDN博主「Hilary-He」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/heyangyi_19940703/article/details/77994416
